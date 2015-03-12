@@ -7,7 +7,7 @@ public class HSVDragger : MonoBehaviour
 {
 
     public RectTransform parentPanel;
-    [HideInInspector]
+
     public RectTransform rectTransform;
     public ScrollRect scrollRect;
 
@@ -16,7 +16,7 @@ public class HSVDragger : MonoBehaviour
 
 	// Use this for initialization
 	void Awake () {
-        rectTransform = GetComponent<RectTransform>();
+        //rectTransform = GetComponent<RectTransform>();
 	}
 	
 	// Update is called once per frame
