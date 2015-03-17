@@ -37,9 +37,10 @@ public class HsvBoxSelector : MonoBehaviour, IPointerDownHandler//IDragHandler
         //pos.x /= picker.hsvImage.rectTransform.rect.width * picker.hsvImage.transform.lossyScale.x;
         //pos.y /= picker.hsvImage.rectTransform.rect.height * picker.hsvImage.transform.lossyScale.y;
 
-
+		//dragger.rectTransform.InverseTransformPoint
         //dragger.SetSelectorPosition(pos.x, pos.y);
 
+		dragger.rectTransform.position = new Vector3(pos.x, pos.y, dragger.rectTransform.position.z);
     }
 
 

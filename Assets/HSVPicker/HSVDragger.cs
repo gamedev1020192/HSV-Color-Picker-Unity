@@ -61,7 +61,7 @@ public class HSVDragger : MonoBehaviour
 
         //Debug.Log(position.x + " " + position.y);
 
-        picker.MoveCursor(position.x, position.y);
+        picker.MoveCursor(position.x, position.y, value.sqrMagnitude > float.Epsilon);
         
     }
 
