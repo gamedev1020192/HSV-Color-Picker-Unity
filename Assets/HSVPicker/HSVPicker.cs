@@ -16,6 +16,7 @@ public class HSVPicker : MonoBehaviour {
 
     public HsvSliderPicker sliderPicker;
     public HSVDragger colorBoxSelector;
+	public BoxSlider boxSlider;
 
     //public InputField inputR;
     //public InputField inputG;
@@ -120,8 +121,11 @@ public class HSVPicker : MonoBehaviour {
 
     }
 
+	public void PlaceCursor(float posX, float posY) {
+		MoveCursor(posX, posY);
+	}
 
-    public Color MoveCursor(float posX, float posY, bool updateInputs=true)
+    public Color MoveCursor(float posX, float posY, bool updateInputs = true)
     {
         dontAssignUpdate = updateInputs;
         if (posX > 1)
@@ -139,6 +143,8 @@ public class HSVPicker : MonoBehaviour {
 
         cursorX = posX;
         cursorY = posY;
+		boxSlider.normalizedValue = posX;
+		boxSlider.normalizedValueY = posY;
         colorBoxSelector.SetSelectorPosition(posX, posY);
         //cursor.rectTransform.anchoredPosition = new Vector2(posX * hsvImage.rectTransform.rect.width, posY * hsvImage.rectTransform.rect.height - hsvImage.rectTransform.rect.height);
 

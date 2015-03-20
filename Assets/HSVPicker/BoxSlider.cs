@@ -17,7 +17,7 @@ namespace UnityEngine.UI
 		}
 		
 		[Serializable]
-		public class BoxSliderEvent : UnityEvent<float> { }
+		public class BoxSliderEvent : UnityEvent<float, float> { }
 		
 		[SerializeField]
 		private RectTransform m_FillRect;
@@ -158,7 +158,7 @@ namespace UnityEngine.UI
 		{
 			#if UNITY_EDITOR
 			if (executing == CanvasUpdate.Prelayout)
-				onValueChanged.Invoke(value);
+				onValueChanged.Invoke(value, valueY);
 			#endif
 		}
 
@@ -243,7 +243,7 @@ namespace UnityEngine.UI
 			m_Value = newValue;
 			UpdateVisuals();
 			if (sendCallback)
-				m_OnValueChanged.Invoke(newValue);
+				m_OnValueChanged.Invoke(newValue, valueY);
 		}
 
 		void SetY(float input)
@@ -265,7 +265,7 @@ namespace UnityEngine.UI
 			m_ValueY = newValue;
 			UpdateVisuals();
 			if (sendCallback)
-				m_OnValueChanged.Invoke(newValue);
+				m_OnValueChanged.Invoke(value, newValue);
 		}
 
 		
