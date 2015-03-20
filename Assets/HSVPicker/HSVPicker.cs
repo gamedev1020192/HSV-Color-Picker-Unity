@@ -36,7 +36,7 @@ public class HSVPicker : MonoBehaviour {
 
     public HSVSliderEvent onValueChanged = new HSVSliderEvent();
 
-    private bool dontAssignUpdate = false;
+    public bool dontAssignUpdate = false;
 
     void Awake()
     {

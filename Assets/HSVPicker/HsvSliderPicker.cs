@@ -48,7 +48,7 @@ public class HsvSliderPicker : MonoBehaviour, IDragHandler, IPointerDownHandler
 
     public void SliderPositionChanged(float sliderValue)
     {
-		picker.MovePointer(sliderValue);//, picker.dontAssignUpdate);
+		picker.MovePointer(sliderValue, !picker.dontAssignUpdate);//, picker.dontAssignUpdate);
     }
 
     internal void SetSliderPosition(float pointerPos)

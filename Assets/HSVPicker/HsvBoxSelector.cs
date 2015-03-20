@@ -40,7 +40,29 @@ public class HsvBoxSelector : MonoBehaviour, IPointerDownHandler//IDragHandler
 		//dragger.rectTransform.InverseTransformPoint
         //dragger.SetSelectorPosition(pos.x, pos.y);
 
-		dragger.rectTransform.position = new Vector3(pos.x, pos.y, dragger.rectTransform.position.z);
+		//dragger.rectTransform.position = new Vector3(pos.x, pos.y, dragger.rectTransform.position.z);
+
+		var m_Offset = Vector2.zero;
+		if (rectTransform != null && RectTransformUtility.RectangleContainsScreenPoint(dragger.rectTransform, eventData.position, eventData.enterEventCamera))
+		{
+			Vector2 localMousePos;
+			if (RectTransformUtility.ScreenPointToLocalPointInRectangle(dragger.rectTransform, eventData.position, eventData.pressEventCamera, out localMousePos))
+				m_Offset = localMousePos;
+		}
+
+		RectTransform clickRect = dragger.rectTransform;
+		Vector2 localCursor;
+			if (!RectTransformUtility.ScreenPointToLocalPointInRectangle(clickRect, eventData.position, Camera.main, out localCursor))
+				return;
+			localCursor -= clickRect.rect.position;
+			
+			float val = ((localCursor - m_Offset).x / clickRect.rect.size.x);
+
+		clickRect.localPosition = new Vector3(val, 1, 0);
+
+			//normalizedValue = (reverseValue ? 1f - val : val);
+
+
     }
 
 
