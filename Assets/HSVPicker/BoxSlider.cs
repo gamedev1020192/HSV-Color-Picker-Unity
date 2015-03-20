@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 
 namespace UnityEngine.UI
 {
-	[AddComponentMenu("UI/BoxSlider", 34)]
+	[AddComponentMenu("UI/BoxSlider", 35)]
 	[RequireComponent(typeof(RectTransform))]
 	public class BoxSlider : Selectable, IDragHandler, IInitializePotentialDragHandler, ICanvasElement
 	{
