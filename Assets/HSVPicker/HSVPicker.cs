@@ -9,13 +9,11 @@ public class HSVPicker : MonoBehaviour {
 
     public Color currentColor;
     public Image colorImage;
-    public Image pointer;
-    public Image cursor;
     public RawImage hsvSlider;
     public RawImage hsvImage;
 
     public HsvSliderPicker sliderPicker;
-    public HSVDragger colorBoxSelector;
+    //public HSVDragger colorBoxSelector;
 	public BoxSlider boxSlider;
 
     //public InputField inputR;
@@ -37,7 +35,7 @@ public class HSVPicker : MonoBehaviour {
 
     public HSVSliderEvent onValueChanged = new HSVSliderEvent();
 
-    public bool dontAssignUpdate = false;
+    private bool dontAssignUpdate = false;
 
     void Awake()
     {
@@ -145,7 +143,7 @@ public class HSVPicker : MonoBehaviour {
         cursorY = posY;
 		boxSlider.normalizedValue = posX;
 		boxSlider.normalizedValueY = posY;
-        colorBoxSelector.SetSelectorPosition(posX, posY);
+        //colorBoxSelector.SetSelectorPosition(posX, posY);
         //cursor.rectTransform.anchoredPosition = new Vector2(posX * hsvImage.rectTransform.rect.width, posY * hsvImage.rectTransform.rect.height - hsvImage.rectTransform.rect.height);
 
         currentColor = GetColor(cursorX, cursorY);
