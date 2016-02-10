@@ -67,6 +67,7 @@ public static class HSVUtil
             g = v;
             b = v;
         }
+
         else
         {
             int i;
@@ -84,6 +85,7 @@ public static class HSVUtil
             p = v * (1.0 - s);
             q = v * (1.0 - (s * f));
             t = v * (1.0 - (s * (1.0f - f)));
+
 
             switch (i)
             {
@@ -124,6 +126,7 @@ public static class HSVUtil
                     break;
             }
 
+
         }
 
         return new Color((float)r, (float)g, (float)b, alpha);
@@ -158,11 +161,14 @@ public struct HsvColor
         {
             return (float)H / 360f;
         }
+
         set
         {
             H = (double)value * 360;
+
         }
     }
+
 
     public float normalizedS
     {
